@@ -1,4 +1,4 @@
-//this variable is a constant. It can't be changed from its current value of 293.
+//this variable is a constant. It can't be redeclared unless in a different scope.
 const kelvin = 0;
 
 //finding out the conversion of kelvin to celsius but, subtracting 273 from the kelvin variable and storing the value of that in the celsius variable.
