@@ -1,0 +1,18 @@
+# Whale Talk - JavaScript Loops Project
+
+Translate regular English phrases into whale language by extracting vowels (a, e, i, o, u) and doubling the e's and u's. Built as part of [Parsity Dev30](https://parsity.io/dev30) JavaScript fundamentals course.
+
+## The Challenge
+- Input: `"P. Sherman, 42 Wallaby Way, Sydney"`
+- Output: `"EEAAAAEE"`
+
+**Whale rules:**
+- No consonants, only vowels (excluding y)
+- Double all e's and u's
+- Uppercase final result
+
+## How It Works
+1. Outer loop iterates through each character in input string
+2. Inner loop checks if character matches any vowel → push to `resultArray`
+3. Special if-statement doubles e's and u's before inner loop runs
+4. `join("")` + `toUpperCase()` → final whale song
