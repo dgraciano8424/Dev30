@@ -44,3 +44,4 @@ for (let i = 0; i < input.length; i++) {
 var resultString = resultArray.join("");
 resultString = resultString.toUpperCase();
 console.log(resultString);
+``;
