@@ -4,10 +4,36 @@ let story =
 let overusedWords = ["really", "very", "basically"];
 
 let unnecessaryWords = ["extremely", "literally", "actually"];
-//Using .length on story array to find the out how many words total.
-// var storyWords = [console.log(storyWords.length)];
-var betterWords = story.push();
+
+//Step 1 Used .split set to split at the beginning of any whitespace.
+var storyWords = story.split(" ");
+
+//Step 2 Used .length to check how many items are in the given array(data structure).
+console.log(storyWords.length);
 
 // arr.forEach(function (currentValue, index, array) {
 //   // iterator
 // });
+
+//Step 3 Created betterWords variable that has a filtered version of storyWords with all unnecessaryWords taken out. I used the filter method with "word" being the descriptive name for each item iterated over. Then returned any word that didn't include any items from "unnecessaryWords" array.
+var betterWords = storyWords.filter(function (word) {
+  return !unnecessaryWords.includes(word);
+});
+
+//Step 4 Using .reduce method to take count of all the time the items in the "overusedWords" array show up in the "betterWords" array. The first parameter is "tally" which is the accumulator, a.k.a. "[]", which is an empty object (2nd parameter to .reduce method) and will be taking in the count of all the "word"'s being reduced from betterWords. The second  parameter is "word" which is our descriptive name for the current item being iterated on.
+var tallyWords = betterWords.reduce(function (tally, word) {
+  if (overusedWords.includes(word)) {
+    tally[word] = (tally[word] || 0) + 1;
+  }
+  return tally;
+}, {});
+console.log(tallyWords);
+
+//Step 5 Using .forEach on "betterWords" array. Checking to see which words ends with a "." or "!". If it does then we increment the "sentenceCount" variable by 1. The total becomes 12.
+var sentenceCount = 0;
+betterWords.forEach(function (word) {
+  if (word.endsWith(".") || word.endsWith("!")) {
+    sentenceCount++;
+  }
+});
+console.log(sentenceCount);
