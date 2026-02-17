@@ -27,7 +27,7 @@ var tallyWords = betterWords.reduce(function (tally, word) {
   }
   return tally;
 }, {});
-console.log(tallyWords);
+// console.log(tallyWords);
 
 //Step 5 Using .forEach on "betterWords" array. Checking to see which words ends with a "." or "!". If it does then we increment the "sentenceCount" variable by 1. The total becomes 12.
 var sentenceCount = 0;
@@ -36,4 +36,47 @@ betterWords.forEach(function (word) {
     sentenceCount++;
   }
 });
-console.log(sentenceCount);
+// console.log(sentenceCount);
+
+// Step 6 Created a variable named "logRoll" that is a function which return 3 console.log's. I then call that function in a console.log outside of the scope of that function.
+var logRoll = function () {
+  return (
+    console.log(tallyWords),
+    console.log(sentenceCount),
+    console.log(overusedWords)
+  );
+};
+console.log(logRoll());
+
+// Step 7 Used .join method to console.log "betterWords" as a single string instead of a broken down array of strings.
+// console.log(betterWords.join(" "));
+
+//Step 8
+//8.1For the overused words, remove it every other time it appears.
+var obj = {};
+var everyOther = storyWords.filter(function (word) {
+  if (overusedWords.includes(word)) {
+    obj[word] = (obj[word] || 0) + 1;
+  }
+  if (obj[word] % 2 === 1) {
+    return true;
+  } else if (obj[word] % 2 === 0) {
+    return false;
+  } else {
+    return true;
+  }
+});
+// console.log(everyOther);
+//8.2Write a function that finds the word that appears the greatest number of times.
+
+//with AI help I learned this way and with object.keys(greatestWord) to turn it into an array first then doing traditional for loop doing this same logic.
+var maxCount = 0;
+var maxWord = "";
+
+for (var word in greatestWord) {
+  if (greatestWord[word] > maxCount) {
+    maxCount = greatestWord[word];
+    maxWord = word;
+  }
+}
+//8.3Replaced overused words with something else.
